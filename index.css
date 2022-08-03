@@ -1,3 +1,11 @@
 div {
   background-color: aquamarine;
 }
+
+.active {
+  display: block;
+}
+
+div.slide:not(.active) {
+  display: none;
+}

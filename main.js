@@ -10,21 +10,27 @@ function getMovie(query) {
       return res.json();
     })
     .then(function (json) {
-      console.log(json);
+      movie_info.style.display = "flex";
+      movie_info.style.flexDirection = "row";
 
-      const title = document.createElement("div");
-      const overview = document.createElement("div");
-      const img = document.createElement("img");
+      json.results.map((v, i) => {
+        const div = document.createElement("div");
+        const title = document.createElement("div");
+        const img = document.createElement("img");
 
-      
-      title.innerText = json.results[0].original_title;
-      overview.innerText = json.results[0].overview;
-      img.src = `https://image.tmdb.org/t/p/w500/
-${json.results[0].poster_path}`;
-      // div.innerText = json.results.overview;
-      movie_info.appendChild(title);
-      movie_info.appendChild(overview);
-      movie_info.appendChild(img);
+        div.classList = `cover slide slide0${(i - (i % 5)) / 5 + 1}`;
+
+        if (i < 5) {
+          div.classList.add("active");
+        }
+        title.innerText = v.title;
+        img.src = `https://image.tmdb.org/t/p/w200/
+${v.poster_path}`;
+
+        movie_info.appendChild(div);
+        div.appendChild(title);
+        div.appendChild(img);
+      });
     });
 }
 
