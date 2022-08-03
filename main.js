@@ -1,10 +1,11 @@
 const genre_info = document.querySelector(".movie");
 const genre_group = document.querySelector(".genre_group");
-const adult_all = document.querySelector(".adult");
-const p_enter = document.querySelector(".enter");
+const adult_all = document.querySelector(".adult")
+const p_enter = document.querySelector(".enter")
 
 const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
-let clicked = [];
+let clicked = []
+
 
 function getMovie() {
   fetch(
@@ -14,52 +15,70 @@ function getMovie() {
       return res.json();
     })
     .then(function (json) {
-      json.genres.map((genre) => {
-        if (
-          genre.name == -"TV Movie" ||
-          genre.name == -"War" ||
-          genre.name == -"Family"
-        ) {
-        } else {
-          const item = document.createElement("button");
-          item.innerText = genre.name;
-          item.id = genre.id;
-          genre_group.appendChild(item);
-          item.addEventListener("click", function (event) {
-            item.style.backgroundColor = "black";
-            item.style.color = "white";
-            clicked.push(genre.id);
-          });
+      json.genres.map((genre)=> {
 
-          console.log(clicked);
+        if (genre.name == "TV Movie" || genre.name == "War" ||genre.name == "Family"){
         }
-      });
+        else {
+          const item = document.createElement("button")
+          item.innerText = genre.name
+          item.id = genre.id
+          genre_group.appendChild(item)
+          item.addEventListener('click', function(event) {
+            item.style.backgroundColor = "black"
+            item.style.color = "white"
+            clicked.push(genre.id)
+          
+          })
+        
+          console.log(clicked)
+        }
+        
+
+      })
+
     });
 }
 
-getMovie();
-console.log(clicked);
 
-// makefir()
+
+getMovie()
+console.log(clicked)
+
+
 
 function makesec() {
-  const adults = document.createElement("button");
-  adults.innerText = "Adult";
-  adult_all.appendChild(adults);
-  adults.id = "adult";
+  const adults = document.createElement("button")
+  adults.innerText = "Adult"
+  adult_all.appendChild(adults)
+  adults.id = 'adult'
+  adults.addEventListener('click', function(event) {
+    adults.style.backgroundColor = "black"
+    adults.style.color = "white"
+    
+  
+  })
+  
 
-  const every = document.createElement("button");
-  every.innerText = "All";
-  adult_all.appendChild(every);
-  every.id = "non-adult";
+  const every = document.createElement("button")
+  every.innerText = "All"
+  adult_all.appendChild(every)
+  every.id = 'non-adult'
+  every.addEventListener('click', function(event) {
+    every.style.backgroundColor = "black"
+    every.style.color = "white"
+    
+  
+  })
 }
 
-makesec();
+makesec()
 
-function make_enter() {
-  const next = document.createElement("button");
-  next.innerText = "Enter";
-  p_enter.appendChild(next);
+function make_enter(){
+  const next = document.createElement("button")
+  next.innerText = "Enter"
+  p_enter.appendChild(next)
 }
 
-make_enter();
+make_enter()
+
