@@ -4,7 +4,7 @@ const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
 
 function getMovie(query) {
   fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+    `https://api.themoviedb.org/3//trending/movie/day?api_key=${API_KEY}`
   )
     .then(function (res) {
       return res.json();
