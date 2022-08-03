@@ -1,41 +1,98 @@
-const movie_info = document.querySelector(".movie");
+const genre_info = document.querySelector(".movie");
+const genre_group = document.querySelector(".genre_group");
+const adult_all = document.querySelector(".adult")
+const p_enter = document.querySelector(".enter")
 
 const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
+let clicked = []
 
-function getMovie(query) {
+
+function getMovie() {
   fetch(
-    `https://api.themoviedb.org/3//trending/movie/day?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=27b04d28b3c48267ca2d4119b0197e69&language=en-US`
   )
     .then(function (res) {
       return res.json();
     })
     .then(function (json) {
-      movie_info.style.display = "flex";
-      movie_info.style.flexDirection = "row";
+      json.genres.map((genre)=> {
 
-      json.results.map((v, i) => {
-        const div = document.createElement("div");
-        const title = document.createElement("div");
-        const img = document.createElement("img");
-
-        div.classList = `cover slide slide0${(i - (i % 5)) / 5 + 1}`;
-
-        if (i < 5) {
-          div.classList.add("active");
+        if (genre.name ==- "TV Movie" || genre.name ==- "War" ||genre.name ==- "Family"){
         }
-        title.innerText = v.title;
-        img.src = `https://image.tmdb.org/t/p/w200/
-${v.poster_path}`;
+        else {
+          const item = document.createElement("button")
+          item.innerText = genre.name
+          item.id = genre.id
+          genre_group.appendChild(item)
+          item.addEventListener('click', function(event) {
+            item.style.backgroundColor = "black"
+            item.style.color = "white"
+            clicked.push(genre.id)
+          
+          })
+        
+          console.log(clicked)
+        }
+        
 
-        movie_info.appendChild(div);
-        div.appendChild(title);
-        div.appendChild(img);
-      });
+      })
+
     });
 }
 
-function init() {
-  getMovie("comedy");
+
+
+getMovie()
+console.log(clicked)
+
+
+// makefir()
+
+function makesec() {
+  const adults = document.createElement("button")
+  adults.innerText = "Adult"
+  adult_all.appendChild(adults)
+  adults.id = 'adult'
+  
+
+  const every = document.createElement("button")
+  every.innerText = "All"
+  adult_all.appendChild(every)
+  every.id = 'non-adult'
 }
 
-init();
+makesec()
+
+function make_enter(){
+  const next = document.createElement("button")
+  next.innerText = "Enter"
+  p_enter.appendChild(next)
+}
+
+make_enter()
+
+// function list(){
+//   this.dataStore = [];
+//   this.pos = 0;
+//   this.listSize = 0;
+// }
+
+// List.prototype.append = function(element){
+//   this.dataStore[this.listSize] = element;
+//   this.listSize++;
+// }
+
+// List.prototype.remove = function(element){
+//   var removePos = this.find(element);
+
+//   if(removePos > -1){
+//     this.dataStore.splice(removePos, 1);
+//     this.listSize--;
+//     return true;
+//   }
+//   return false;
+// }
+
+// function onclick_event(){
+  
+// }
