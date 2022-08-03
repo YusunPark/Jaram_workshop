@@ -17,7 +17,7 @@ function getMovie() {
     .then(function (json) {
       json.genres.map((genre)=> {
 
-        if (genre.name ==- "TV Movie" || genre.name ==- "War" ||genre.name ==- "Family"){
+        if (genre.name == "TV Movie" || genre.name == "War" ||genre.name == "Family"){
         }
         else {
           const item = document.createElement("button")
@@ -46,19 +46,30 @@ getMovie()
 console.log(clicked)
 
 
-// makefir()
 
 function makesec() {
   const adults = document.createElement("button")
   adults.innerText = "Adult"
   adult_all.appendChild(adults)
   adults.id = 'adult'
+  adults.addEventListener('click', function(event) {
+    adults.style.backgroundColor = "black"
+    adults.style.color = "white"
+    
+  
+  })
   
 
   const every = document.createElement("button")
   every.innerText = "All"
   adult_all.appendChild(every)
   every.id = 'non-adult'
+  every.addEventListener('click', function(event) {
+    every.style.backgroundColor = "black"
+    every.style.color = "white"
+    
+  
+  })
 }
 
 makesec()
@@ -71,28 +82,3 @@ function make_enter(){
 
 make_enter()
 
-// function list(){
-//   this.dataStore = [];
-//   this.pos = 0;
-//   this.listSize = 0;
-// }
-
-// List.prototype.append = function(element){
-//   this.dataStore[this.listSize] = element;
-//   this.listSize++;
-// }
-
-// List.prototype.remove = function(element){
-//   var removePos = this.find(element);
-
-//   if(removePos > -1){
-//     this.dataStore.splice(removePos, 1);
-//     this.listSize--;
-//     return true;
-//   }
-//   return false;
-// }
-
-// function onclick_event(){
-  
-// }
