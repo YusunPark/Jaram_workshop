@@ -17,6 +17,7 @@ function getMovie(query) {
         const img = document.createElement("img");
 
         div.classList = `cover slide slide0${(i - (i % 5)) / 5 + 1}`;
+        img.classList = "trend_img";
 
         if (i < 5) {
           div.classList.add("active");
