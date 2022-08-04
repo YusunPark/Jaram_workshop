@@ -1,5 +1,24 @@
-div {
-  background-color: aquamarine;
+.genre_group{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: space-around;
+  margin-left : 100px;
+}
+.adult{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
+  margin-left : 230px;  
+  margin-right: -150px;
+ 
+}
+
+.enter{
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  margin-left : 0%;  
+  margin-right: -300px;
 }
 
 .active {
@@ -8,4 +27,59 @@ div {
 
 div.slide:not(.active) {
   display: none;
+}
+
+body {
+  background: #e0e5ec;
+}
+
+.button {
+  width: 200px;
+  height: 80px;
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+  transition: 0.3s;
+  margin: 50px 0px 0px 0px;
+  transform: translate(-50%, -50%);
+}
+.button:focus {
+  outline: 0;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  color: #e0e5ec;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 79, 255, 0.6);
+}
+.right button {
+  width: 400px;
+  height: 80px;
+  top: 30px;
+  
+}
+
+.under button {
+  width: 50%;
+  height: 100px;
+  position: relative;
+  top: 80px;
+  left: 50%;
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+  transition: 0.3s;
+  position: relative;
+  margin: 10px 10px 0px 0px;
+  top: 60px;
+  left: 140px;
+  transform: translate(-50%, -50%);
+  
 }
