@@ -5,7 +5,7 @@ const p_enter = document.querySelector(".enter");
 
 // const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
 let clicked = [];
-
+let  adult = ''
 function getMovie() {
   fetch(
     `https://api.themoviedb.org/3/genre/movie/list?api_key=27b04d28b3c48267ca2d4119b0197e69&language=en-US`
@@ -30,7 +30,7 @@ function getMovie() {
           item.addEventListener("click", function (event) {
             item.style.backgroundColor = "black";
             item.style.color = "white";
-            clicked.push(genre.id);
+            clicked.push(genre.name);
           });
         }
       });
@@ -47,7 +47,7 @@ function makesec() {
   adults.addEventListener("click", function (event) {
     adults.style.backgroundColor = "black";
     adults.style.color = "white";
-    clicked.push(adults.id);
+    adult = adults.id
   });
 
   const every = document.createElement("button");
@@ -59,7 +59,7 @@ function makesec() {
   every.addEventListener("click", function (event) {
     every.style.backgroundColor = "black";
     every.style.color = "white";
-    clicked.push(every.id);
+    adult = every.id
   });
 }
 
@@ -68,14 +68,14 @@ function make_enter() {
   next.innerText = "Enter";
   p_enter.appendChild(next);
   next.addEventListener("click", function (event) {
-    localStorage.setItem("clicked", JSON.stringify(cast));
+    
+    localStorage.setItem("adult", adult);
+    localStorage.setItem("clicked", clicked);
     location.href = "recommend.html";
   });
 }
 
-console.log("adfs");
 getMovie();
 makesec();
 make_enter();
 
-console.log(clicked);
