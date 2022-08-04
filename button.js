@@ -47,7 +47,7 @@ function makesec() {
   adults.addEventListener("click", function (event) {
     adults.style.backgroundColor = "black";
     adults.style.color = "white";
-    adult = adults.id
+    adult = true;
   });
 
   const every = document.createElement("button");
@@ -59,7 +59,7 @@ function makesec() {
   every.addEventListener("click", function (event) {
     every.style.backgroundColor = "black";
     every.style.color = "white";
-    adult = every.id
+    adult = false;
   });
 }
 
