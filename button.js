@@ -5,7 +5,7 @@ const p_enter = document.querySelector(".enter");
 
 // const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
 let clicked = [];
-let  adult = ''
+let adult = "";
 function getMovie() {
   fetch(
     `https://api.themoviedb.org/3/genre/movie/list?api_key=27b04d28b3c48267ca2d4119b0197e69&language=en-US`
@@ -68,7 +68,6 @@ function make_enter() {
   next.innerText = "Enter";
   p_enter.appendChild(next);
   next.addEventListener("click", function (event) {
-    
     localStorage.setItem("adult", adult);
     localStorage.setItem("clicked", clicked);
     location.href = "recommend.html";
@@ -78,4 +77,3 @@ function make_enter() {
 getMovie();
 makesec();
 make_enter();
-
