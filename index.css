@@ -6,14 +6,12 @@ div {
 #grid{
   border:4px solid #E84A5F;
   padding:25px;
-  display: grid;
-  grid-template-columns: 350px 200px 400px 1fr 1fr;
-    /* grid-template-areas:
-      ". . header"
-      "main . sidebar"
-      ". . footer"; */
+  display: flex;
+  grid-template-columns: 350px 200px 400px 1fr;
 }
-/* .gerne{grid-area:'header';}
-.img{grid-area:'main';}
-.title{grid-area:'sidebar';}
-.overview{grid-area:'footer';} */
+
+.movie_recommend{
+  border:4px solid #E84A5F;
+  padding:25px;
+  display:flex; 
+}

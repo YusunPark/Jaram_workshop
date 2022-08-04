@@ -38,7 +38,7 @@ function getMovie_Genre_id (query) {
   }
 function getMovie_Genre (query,id) {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
     )
       .then(function (res) {
         return res.json();
