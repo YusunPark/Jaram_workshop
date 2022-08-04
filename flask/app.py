@@ -25,6 +25,12 @@ app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 def index():
     return render_template('index.html')
 
+
+@app.route('/recommend')
+def recommend():
+    return render_template('recommend.html')
+
+    
 @app.route('/about')
 def about():
     return 'about 페이지 입니다'
@@ -34,7 +40,4 @@ def about():
 
 if __name__ == '__main__':
     # 코드 수정시 자동 반영
-
     app.run(debug=True)
-    print("adsf")
-    print("adsfsdfa")
