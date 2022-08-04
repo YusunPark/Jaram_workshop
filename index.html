@@ -3,15 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jaram api</title>
+    <title>jaram workshop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
   </head>
-  <body>
-    <div class="main">main 페이지</div>
-    <div class="movie"></div>
 
-    <script src="main.js"></script>
+  <body>
+    <div class="trend">
+      <button class="prev_btn">prev</button>
+
+      <div class="trend_movie"></div>
+      <button class="next_btn">next</button>
+    </div>
+
+    <div class="combo">
+      <div class="left">
+        <div class="genre_group"></div>
+      </div>
+
+      <div class="right">
+        <div class="adult"></div>
+      </div>
+
+      <div class="under">
+        <div class="enter"></div>
+      </div>
+    </div>
+
+    <button onclick="location.href='recommend.html'">임시 버튼</button>
+
+    <script src="trend.js"></script>
+    <script src="carousel.js"></script>
+    <script src="button.js"></script>
   </body>
 </html>
-
