@@ -1,38 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>내 취향 영화</title>
-        <style>
-          div {
-            width: 100%;
-            height: 400px;
-            border: 1px solid #000
-          }
-          div.left{
-            width: 80%;
-            float: left;
-            box-sizing: border-box;
-          }
-          div.right{
-            width:20%;
-            float:right;
-            box-sizing:border-box;
-          }
-        </style>
-  
-        <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jaram workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+  </head>
 
-    <div class="trend_movie"></div>
-    <button class="next_btn">next</button>
+  <body>
+    <div class="trend">
+      <button class="prev_btn">prev</button>
 
-    <button onclick="location.href='genre.html'">genre</button>
+      <div class="trend_movie"></div>
+      <button class="next_btn">next</button>
+    </div>
+
+    <div class="combo">
+      <div class="left">
+        <div class="genre_group"></div>
+      </div>
+
+      <div class="right">
+        <div class="adult"></div>
+      </div>
+
+      <div class="under">
+        <div class="enter"></div>
+      </div>
+    </div>
+
+    <!-- <button onclick="location.href='genre.html'">genre</button> -->
 
     <script src="trend.js"></script>
     <script src="carousel.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
-
-
- 
