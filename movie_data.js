@@ -1,26 +1,31 @@
 const movie_info = document.querySelector(".movie_data");
-
+const movie_c_info = document.querySelector(".movie_recommend");
 const API_KEY = "27b04d28b3c48267ca2d4119b0197e69";
 
-function getMovie_Img(query) {
+function getMovie2(query) {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
-    )
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
+      )
       .then(function (res) {
         return res.json();
       })
       .then(function (json) {
         console.log(json);
         const img = document.createElement("img");
-        img.class="img";
-        //img.style.background = "red";
+        const title = document.createElement("div");
+        const overview = document.createElement("div");
         img.src = `https://image.tmdb.org/t/p/w300/${json.results[0].poster_path}`;
+        title.innerText = json.results[0].original_title;
+        overview.innerText=json.results[0].overview;
         movie_info.appendChild(img);
+        movie_info.appendChild(title);
+        movie_info.appendChild(overview);
+
       });
   }
-  function getMovie_Genre_id (query) {
+function getMovie_Genre_id (query) {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
     )
       .then(function (res) {
         return res.json();
@@ -33,7 +38,7 @@ function getMovie_Img(query) {
   }
 function getMovie_Genre (query,id) {
     fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
     )
       .then(function (res) {
         return res.json();
@@ -43,48 +48,40 @@ function getMovie_Genre (query,id) {
             if(id.includes(i.id)){
             const genre = document.createElement("div")
             genre.innerText= i.name;
-            genre.class="genre";
             movie_info.appendChild(genre);
         }});
       });
   }
-function getMovie_Title(query) {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
-    )
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (json) {
-        console.log(json);
-        const title = document.createElement("div");
-        title.innerText = json.results[0].original_title;
-        title.class="title";
-        movie_info.appendChild(title);
-      });
-  }
 
  
-  function getMovie_Overview (query) {
+  function getMovie(query) {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
     )
       .then(function (res) {
         return res.json();
       })
       .then(function (json) {
         console.log(json);
-        const overview = document.createElement("div");
-        overview.innerText = json.results[0].overview;
-        overview.class="overview";
-        movie_info.appendChild(overview);
+        const img = document.createElement("img");
+        const title = document.createElement("div");
+        img.src = `https://image.tmdb.org/t/p/w200/${json.results[0].poster_path}`;
+        title.innerText = json.results[0].original_title;
+        movie_c_info.appendChild(img);
+        movie_c_info.appendChild(title);
       });
   }
-function init() {
-    getMovie_Img("comedy");
-    getMovie_Genre_id("comedy");
-    getMovie_Title("comedy");
-    getMovie_Overview("comedy");
+  
+function init2() {
+    getMovie2("InAPPropriate Comedy");
+    getMovie_Genre_id("InAPPropriate Comedy");
+}
+function init(L) {
+  for (let i = 0; i < L.length; i++) {
+    getMovie(L[i]);
+  }
 }
 
-init();
+init(["comedy","Family","TV Movie"]);
+init2();
+
