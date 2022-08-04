@@ -50,7 +50,7 @@ body {
   position: relative;
   top: 80px;
   left: 50%;}
-  
+
 div {
   background-color: #2A363B;
   color:ivory;
@@ -70,3 +70,35 @@ div {
 .img{grid-area:'main';}
 .title{grid-area:'sidebar';}
 .overview{grid-area:'footer';} */
+.trend {
+  display : flex;
+  padding-right : 200px;
+  padding-left : 200px;
+}
+.prev_btn{
+  color: rgb(0, 0, 0);
+  background: #e0e5ec;
+  font-size: 50px;
+  border: none;
+}
+
+.next_btn{
+  color: rgb(0, 0, 0);
+  background: #e0e5ec;
+  font-size: 50px;
+  border: none;
+}
+
+.trend_img{
+  border-radius: 20px;
+}
+
+.cover.slide{
+  padding-left : 10px;
+  padding-right : 10px;
+  text-align: center;
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
