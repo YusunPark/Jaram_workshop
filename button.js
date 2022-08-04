@@ -69,13 +69,13 @@ function make_enter() {
   p_enter.appendChild(next);
   next.addEventListener("click", function (event) {
     localStorage.setItem("clicked", JSON.stringify(cast));
-    location.href = "이동할 페이지 주소";
+    location.href = "recommend.html";
   });
 }
 
 console.log("adfs");
 getMovie();
 makesec();
-// make_enter();
+make_enter();
 
 console.log(clicked);
